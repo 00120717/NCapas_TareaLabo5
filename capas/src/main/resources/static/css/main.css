@@ -230,6 +230,10 @@ textarea.input1 + .shadow-input1 {
   color: #666666;
 }
 
+.input2{
+	color: #0072ff;
+}
+
 .shadow-input1 {
   content: '';
   display: block;

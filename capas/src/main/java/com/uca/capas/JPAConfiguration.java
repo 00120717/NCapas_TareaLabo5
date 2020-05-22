@@ -15,6 +15,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
+@EnableTransactionManagement
 public class JPAConfiguration {
 	
 	
@@ -42,6 +43,13 @@ public class JPAConfiguration {
 		dataSource.setPassword("012rmv90");
 		
 		return dataSource;
+	}
+	
+	@Bean
+	JpaTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
+		JpaTransactionManager transactionManager = new JpaTransactionManager();
+		transactionManager.setEntityManagerFactory(entityManagerFactory);
+		return transactionManager;
 	}
 	
 	Properties hibernateProperties() {

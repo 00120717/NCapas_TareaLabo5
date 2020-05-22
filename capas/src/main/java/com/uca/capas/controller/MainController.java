@@ -71,18 +71,12 @@ public class MainController {
 
 		try {
 			estudianteDAO.delete(id);
+			estudiantes = estudianteDAO.findAll();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 		
-		try {
-			estudiantes = estudianteDAO.findAll();
-		}
-		catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
 		mav.addObject("estudiantes",estudiantes);
 		
 		mav.setViewName("listado");
