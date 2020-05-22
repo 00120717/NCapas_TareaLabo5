@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.uca.capas.dao.EstudianteDAO;
@@ -63,5 +64,29 @@ public class MainController {
 		return mav;
 	}
 	
+	@RequestMapping("/delete")
+	public ModelAndView borrarEstudiante(@RequestParam(value="codigo") int id) {
+		ModelAndView mav = new ModelAndView();
+		List<Estudiante> estudiantes= null;
+
+		try {
+			estudianteDAO.delete(id);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		try {
+			estudiantes = estudianteDAO.findAll();
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		mav.addObject("estudiantes",estudiantes);
+		
+		mav.setViewName("listado");
+		return mav;
+	}
 
 }
