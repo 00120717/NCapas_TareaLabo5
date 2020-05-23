@@ -19,22 +19,22 @@ public class Estudiante {
 	private Integer cUsuario;
 	
 	@Column(name="nombre")
-	@Size(min=1,max = 50,message = "Este campo no puede tener mas de 50 caracteres")	
+	@Size(min=1,max = 50,message = "Este campo debe tener entre 1 y 50 caracteres")	
 	@NotNull
 	private String Nombre;
 	
 	@Column(name="apellido")
-	@Size(min=1,max = 50,message = "Este campo no puede tener mas de 50 caracteres")
+	@Size(min=1,max = 50,message = "Este campo debe tener entre 1 y 50 caracteres")
 	@NotNull
 	private String Apellido;
 	
 	@Column(name = "carne")
-	@Size(min=1,max = 10,message = "Este campo no puede tener mas de 10 caracteres")
+	@Size(min=1,max = 10,message = "Este campo debe tener entre 1 y 10 caracteres")
 	@NotNull
 	private String Carnet;
 	
 	@Column(name = "carrera")
-	@Size(min=1,max = 100,message = "Este campo no puede tener mas de 100 caracteres")
+	@Size(min=1,max = 100,message = "Este campo debe tener entre 1 y 100 caracteres")
 	@NotNull
 	private String Carrera;
 	
